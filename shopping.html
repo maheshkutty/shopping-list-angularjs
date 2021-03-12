@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="./js/controller.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body ng-app="app">
+    <div  ng-controller="controller" class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4 pl-0 pr-0 mb-0 content">
+                <h1 class="">My Shopping List</h1>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-4 pl-0 pr-0 mt-0 content shoppinglist">
+                <ul>
+                    <li ng-repeat = "i in shoppinglist.task">
+                        <span id="listp" ng-if="i.completed">{{i.name}}</span>
+                        <span ng-if="i.completed == false">{{i.name}} </span>
+                        <label class="chkcontainer" ng-if="i.completed"><input type="checkbox" name="" listid="{{i.id}}" ng-click = "toComplete($event)" checked  /> <span class="checkmark"></span></label>
+                        <label class="chkcontainer" ng-if="i.completed == false"><input type="checkbox" name="" listid="{{i.id}}" ng-click = "toComplete($event)"  /> <span class="checkmark"></span></label>
+                    </li>
+                </ul>                
+            </div>            
+            <div class="w-100"></div>
+            <div class="col-md-4 pl-0 pr-0 mt-0 content">
+                <div class="addinput">
+                    <input type="text" placeholder="Type to add item" class="form-control" id="listinput" ng-model="list">
+                </div>
+                <div class="d-flex justify-content-center mb-2">
+                    <button class="btn btn-primary addbtn mr-2" ng-click="addlist()">Add</button>
+                    <button class="btn btn-primary addbtn" ng-click="toDelete($event)">Remove Bought</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
