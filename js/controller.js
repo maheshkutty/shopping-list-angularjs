@@ -11,13 +11,13 @@ myApp.controller("controller",['$scope',function($scope) {
 
     $scope.addlist = function() 
     {
+        let id = $scope.shoppinglist.task.length == 0?0:$scope.shoppinglist.task[$scope.shoppinglist.task.length - 1].id + 1
         let pdata = {
             "name":$scope.list,
             "completed":false,
-            "id":$scope.shoppinglist.task[$scope.shoppinglist.task.length - 1].id + 1
+            "id":id
         }
         $scope.shoppinglist.task.push(pdata);
-        //document.getElementById("#listinput").innerHTML = "";
         $("#listinput").val("")
     }    
 
